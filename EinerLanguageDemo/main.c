@@ -7,10 +7,22 @@
 //
 
 #include <stdio.h>
+#include "EiHeader.h"
 
-int main(int argc, const char * argv[]) {
+int main (int argc, const char * argv[]) {
 
     // insert code here...
-    printf("Hello, World!\n");
+    EiString * string = (EiString *) malloc (sizeof (EiString *));
+    EiStringInit (string);
+    printf("%d\n", string->cacheLength);
+
+    EiStringFree (string);
+
+    printf("%d\n", string->cacheLength);
+
+    free (string);
+
+    printf("%d\n", string->cacheLength);
+
     return 0;
 }
