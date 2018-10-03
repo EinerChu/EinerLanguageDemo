@@ -11,18 +11,24 @@
 
 int main (int argc, const char * argv[]) {
 
-    // insert code here...
-    EiString * string = (EiString *) malloc (sizeof (EiString *));
-    EiStringInit (string);
-    printf("%d\n", string->cacheLength);
+    printf(" \n");
+    EiString * string = (EiString *)malloc(sizeof(struct EiString));
+    EiStringInit(string);
 
-    EiStringFree (string);
+    char ch;
 
-    printf("%d\n", string->cacheLength);
+    printf("plase input something:");
 
-    free (string);
+    while ((ch = getchar()) != '\n') {
+        EiStringAddCharWithChar(string, ch);
+    }
 
-    printf("%d\n", string->cacheLength);
+    printf("content:%s length:%d cacheLength:%d\n", string->data, string->length, string->cacheLength);
+
+    EiStringFree(string);
+
+    free(string);
+    string = NULL;
 
     return 0;
 }

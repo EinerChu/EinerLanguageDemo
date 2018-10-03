@@ -21,13 +21,21 @@ typedef struct EiString {
 /*!
  @brief 初始化字符串变量 string 字符串变量
  */
-void EiStringInit (EiString * string);
+int EiStringInit (EiString * string);
 
 /*!
  @brief 初始化字符串变量 string:字符串变量 cacheLength:数据缓存长度
  */
-void EiStringInitWithCacheLength (EiString * string, int cacheLength);
+int EiStringInitWithCacheLength (EiString * string, int cacheLength);
 
-void EiStringFree (EiString * string);
+/*!
+ @brief 追加内容 string:字符串变量 ch:数据
+ */
+int EiStringAddCharWithChar (EiString * string, char ch);
+
+/*!
+ @brief 释放字符串变量 string:字符串变量
+ */
+int EiStringFree (EiString * string);
 
 #endif /* EiString_h */

@@ -9,36 +9,81 @@
 #include "EiString.h"
 
 // 初始化字符串
-void EiStringInit (EiString * string) {
+int EiStringInit (EiString * string) {
 
-    printf("EiString init ...\n");
-    EiStringInitWithCacheLength(string, 10);
+    return EiStringInitWithCacheLength(string, 10);
 }
 
 // 初始化指定长度的字符串
-void EiStringInitWithCacheLength (EiString * string, int cacheLength) {
+int EiStringInitWithCacheLength (EiString * string, int cacheLength) {
+
+    int result = 0;
 
     if (string != NULL) {
-        // 记录首地址
-        string->data = malloc (cacheLength * sizeof(char));
+        string->data = (char *) malloc (cacheLength * sizeof (char));
         string->length = 0;
         string->cacheLength = cacheLength;
-        printf("EiString init success ..., string:%p\n", string->data);
-    } else {
-        printf("EiString init failed ..., string:%p\n", string);
+        result = 1;
     }
+
+    return result;
+}
+
+// 重新分配字符串
+int EiStringRealloc (EiString * string, int newSize) {
+
+    int result = 0, cacheLength = 0;
+    char * data;
+
+    if (string != NULL) {
+        cacheLength = string->cacheLength;
+
+        while (cacheLength < newSize) {
+            cacheLength = cacheLength * 2;
+        }
+
+        data = realloc (string->data, cacheLength);
+
+        if (data) {
+            string->cacheLength = cacheLength;
+            string->data = data;
+            result = 1;
+        }
+    }
+
+    return result;
+}
+
+// 追加字符串
+int EiStringAddCharWithChar (EiString * string, char ch) {
+
+    int result = 0, count = 0;
+
+    if (string) {
+        count = string->length + 1;
+
+        if (count > string->cacheLength) {
+            EiStringRealloc (string, count);
+        }
+        string->data [count - 1] = ch;
+        string->length = count;
+    }
+
+    return result;
 }
 
 // 释放字符串
-void EiStringFree (EiString * string) {
+int EiStringFree (EiString * string) {
 
-    if (string != NULL) {
-        if (string->data) {
-            free (string->data);
-            string->length = -1;
-            string->cacheLength = -1;
-        }
+    int result = 0;
+
+    if (string != NULL && string->data != NULL) {
+        free (string->data);
+        string->data = NULL;
+        string->length = 0;
+        string->cacheLength = 0;
+        result = 1;
     }
     
-    printf("EiString free ...\n");
+    return result;
 }
