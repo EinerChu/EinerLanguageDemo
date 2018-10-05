@@ -11,5 +11,6 @@
 
 #include "EiHeader.h"
 #include "EiString.h"
+#include "EiArray.h"
 
 #endif /* EiHeader_h */

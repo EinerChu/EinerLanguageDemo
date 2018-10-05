@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22868B392163A7DD005C5419 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 22868B382163A7DD005C5419 /* main.c */; };
 		22868B422163ABCF005C5419 /* EiString.c in Sources */ = {isa = PBXBuildFile; fileRef = 22868B412163ABCF005C5419 /* EiString.c */; };
+		22E13E30216723C800BB3097 /* EiArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 22E13E2F216723C800BB3097 /* EiArray.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,8 @@
 		22868B402163ABCF005C5419 /* EiString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EiString.h; sourceTree = "<group>"; };
 		22868B412163ABCF005C5419 /* EiString.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = EiString.c; sourceTree = "<group>"; };
 		22868B432163AC2B005C5419 /* EiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EiHeader.h; sourceTree = "<group>"; };
+		22E13E2E216723C800BB3097 /* EiArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EiArray.h; sourceTree = "<group>"; };
+		22E13E2F216723C800BB3097 /* EiArray.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = EiArray.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 			children = (
 				22868B382163A7DD005C5419 /* main.c */,
 				22868B432163AC2B005C5419 /* EiHeader.h */,
+				22E13E2E216723C800BB3097 /* EiArray.h */,
+				22E13E2F216723C800BB3097 /* EiArray.c */,
 				22868B402163ABCF005C5419 /* EiString.h */,
 				22868B412163ABCF005C5419 /* EiString.c */,
 				22868B3F2163A814005C5419 /* ReadMe.MD */,
@@ -127,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E13E30216723C800BB3097 /* EiArray.c in Sources */,
 				22868B422163ABCF005C5419 /* EiString.c in Sources */,
 				22868B392163A7DD005C5419 /* main.c in Sources */,
 			);

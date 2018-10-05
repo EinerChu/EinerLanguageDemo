@@ -18,6 +18,27 @@ typedef struct EiString {
     char *  data;               // data
 } EiString;
 
+/*
+ // 文本创建
+ EiString * string = (EiString *)malloc(sizeof(struct EiString));
+ EiStringInit(string);
+
+ // 文本输入
+ char ch;
+ printf("plase input something:");
+ while ((ch = getchar()) != '\n') {
+    EiStringAddCharWithChar(string, ch);
+ }
+
+ // 文本使用
+ printf("content:%s length:%d cacheLength:%d\n", string->data, string->length, string->cacheLength);
+
+ // 文本释放
+ EiStringRelease(string);
+ free(string);
+ string = NULL;
+ */
+
 /*!
  @brief 初始化字符串变量 string 字符串变量
  */
@@ -36,6 +57,6 @@ int EiStringAddCharWithChar (EiString * string, char ch);
 /*!
  @brief 释放字符串变量 string:字符串变量
  */
-int EiStringFree (EiString * string);
+int EiStringRelease (EiString * string);
 
 #endif /* EiString_h */

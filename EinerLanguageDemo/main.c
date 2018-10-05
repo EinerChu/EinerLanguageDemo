@@ -11,24 +11,48 @@
 
 int main (int argc, const char * argv[]) {
 
-    printf(" \n");
+    // 文本创建
     EiString * string = (EiString *)malloc(sizeof(struct EiString));
     EiStringInit(string);
+    EiString * stringTwo = (EiString *)malloc(sizeof(struct EiString));
+    EiStringInit(stringTwo);
 
+    // 文本输入
     char ch;
-
-    printf("plase input something:");
-
+    printf("plase input textOne:");
     while ((ch = getchar()) != '\n') {
         EiStringAddCharWithChar(string, ch);
     }
+    printf("plase input textTwo:");
+    while ((ch = getchar()) != '\n') {
+        EiStringAddCharWithChar(stringTwo, ch);
+    }
 
-    printf("content:%s length:%d cacheLength:%d\n", string->data, string->length, string->cacheLength);
+    // 文本使用
+    printf("stringOne:%s stringTwo:%s\n", string->data, stringTwo->data);
 
-    EiStringFree(string);
+    // 数组的使用
+    EiArray * array = (EiArray *)malloc(sizeof(struct EiArray));
+    EiArrayInit(array);
+    EiArrayAddObject(array, string);
 
+    // 文本使用
+    printf("stringOne:%s stringTwo:%s arrayOne:%p\n", string->data, stringTwo->data, array->data[array->count - 1]);
+
+    printf("release data ...");
+
+    // 数组释放
+    EiArrayRelease(array);
+    free(array);
+    array = NULL;
+
+    // 文本释放
+    EiStringRelease(string);
     free(string);
     string = NULL;
+    EiStringRelease(stringTwo);
+    free(stringTwo);
+    stringTwo = NULL;
 
     return 0;
 }
