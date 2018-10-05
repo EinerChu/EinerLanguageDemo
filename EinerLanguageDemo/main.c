@@ -23,6 +23,7 @@ int main (int argc, const char * argv[]) {
     while ((ch = getchar()) != '\n') {
         EiStringAddCharWithChar(string, ch);
     }
+
     printf("plase input textTwo:");
     while ((ch = getchar()) != '\n') {
         EiStringAddCharWithChar(stringTwo, ch);
@@ -35,11 +36,10 @@ int main (int argc, const char * argv[]) {
     EiArray * array = (EiArray *)malloc(sizeof(struct EiArray));
     EiArrayInit(array);
     EiArrayAddObject(array, string);
+    EiArrayAddObject(array, stringTwo);
 
     // 文本使用
-    printf("stringOne:%s stringTwo:%s arrayOne:%p\n", string->data, stringTwo->data, array->data[array->count - 1]);
-
-    printf("release data ...");
+    printf("stringOne:%s stringTwo:%s arrayOne:%s arrayTwo:%s\n", string->data, stringTwo->data, ((EiString *)(array->data[0]))->data, ((EiString *)(array->data[1]))->data);
 
     // 数组释放
     EiArrayRelease(array);
@@ -50,6 +50,7 @@ int main (int argc, const char * argv[]) {
     EiStringRelease(string);
     free(string);
     string = NULL;
+
     EiStringRelease(stringTwo);
     free(stringTwo);
     stringTwo = NULL;
