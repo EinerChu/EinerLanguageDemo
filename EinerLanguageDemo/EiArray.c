@@ -83,7 +83,7 @@ int EiArrayAddObject (EiArray * array, void * object) {
     return result;
 }
 
-// 释放字符串
+// 释放数组变量
 int EiArrayRelease (EiArray * array) {
 
     int result = 0;
