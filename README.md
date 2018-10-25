@@ -1,2 +1,2 @@
 # EinerLanguageDemo
-myself computer language.
+This is a myself computer language demo.

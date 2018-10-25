@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220C72D8217CB0A6004FBEC0 /* EiError.c in Sources */ = {isa = PBXBuildFile; fileRef = 220C72D7217CB0A6004FBEC0 /* EiError.c */; };
 		22868B392163A7DD005C5419 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 22868B382163A7DD005C5419 /* main.c */; };
 		22868B422163ABCF005C5419 /* EiString.c in Sources */ = {isa = PBXBuildFile; fileRef = 22868B412163ABCF005C5419 /* EiString.c */; };
 		22E13E30216723C800BB3097 /* EiArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 22E13E2F216723C800BB3097 /* EiArray.c */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		220C72D6217CB0A6004FBEC0 /* EiError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EiError.h; sourceTree = "<group>"; };
+		220C72D7217CB0A6004FBEC0 /* EiError.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = EiError.c; sourceTree = "<group>"; };
 		22868B352163A7DD005C5419 /* EinerLanguageDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EinerLanguageDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		22868B382163A7DD005C5419 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		22868B3F2163A814005C5419 /* ReadMe.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.MD; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 				22E13E2F216723C800BB3097 /* EiArray.c */,
 				22868B402163ABCF005C5419 /* EiString.h */,
 				22868B412163ABCF005C5419 /* EiString.c */,
+				220C72D6217CB0A6004FBEC0 /* EiError.h */,
+				220C72D7217CB0A6004FBEC0 /* EiError.c */,
 				22868B3F2163A814005C5419 /* ReadMe.MD */,
 			);
 			path = EinerLanguageDemo;
@@ -134,6 +139,7 @@
 			files = (
 				22E13E30216723C800BB3097 /* EiArray.c in Sources */,
 				22868B422163ABCF005C5419 /* EiString.c in Sources */,
+				220C72D8217CB0A6004FBEC0 /* EiError.c in Sources */,
 				22868B392163A7DD005C5419 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
