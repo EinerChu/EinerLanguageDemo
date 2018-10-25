@@ -8,6 +8,7 @@
 
 #include "EiError.h"
 
+#if 0
 /***********************************************************
  * 功能:    异常处理
  * stage:    编译阶段还是链接阶段
@@ -92,4 +93,4 @@ void link_error(char *fmt, ...)
     handle_exception(STAGE_LINK,LEVEL_ERROR, fmt, ap);
     va_end(ap);
 }
-
+#endif

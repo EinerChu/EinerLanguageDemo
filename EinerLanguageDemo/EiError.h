@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+#if 0
+
 /* 错误级别 */
 enum e_ErrorLevel {
     LEVEL_WARNING,
@@ -29,5 +31,6 @@ void expect(char *msg);
 void skip(int c);
 void link_error(char *fmt, ...);
 
+#endif
 
 #endif /* EiError_h */
