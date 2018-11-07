@@ -7,7 +7,6 @@
 //
 
 #include "EiFoundation.h"
-#include <string.h>
 
 int main (int argc, const char * argv[]) {
     
@@ -15,17 +14,14 @@ int main (int argc, const char * argv[]) {
     char tmpString[20] = "\0";
 
     EiStringInit(&string);
-    
-    // 文本输入
+
     printf("plase input something:");
     gets(tmpString);
+    EiStringAddString(&string, tmpString);
 
-    printf("length:%d\n", strlen(tmpString));
-    printf("length:%d\n", sizeof(tmpString));
-
-    // 文本使用
-    printf("content:%s-%s length:%d cacheLength:%d\n", tmpString, string.data, string.length, string.cacheLength);
-
+    printf("content:%s length:%d cacheLength:%d\n", string.data, string.length, string.cacheLength);
+    EiStringRelease(&string);
+    
     pauseProgress();
     
     return 0;

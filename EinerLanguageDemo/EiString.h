@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct EiString {
     int     length;             // string's data length
@@ -21,22 +22,32 @@ typedef struct EiString {
 #define EISTRING_INIT_SIZE 12   // Eistring 默认的初始化大小
 
 /*
-    // 文本创建
-    EiString * string = (EiString *)malloc(sizeof(struct EiString));
-    EiStringInit(string);
+    使用一:
+    EiString string;
+    char tmpString[20] = "\0";
 
-    // 文本输入
-    char ch;
+    EiStringInit(&string);
+
     printf("plase input something:");
-    while ((ch = getchar()) != '\n') {
-        EiStringAddCharWithChar(string, ch);
-    }
+    gets(tmpString);
+    EiStringAddString(&string, tmpString);
+    printf("content:%s length:%d cacheLength:%d\n", string.data, string.length, string.cacheLength);
+    
+    EiStringRelease(&string);
 
-    // 文本使用
+    使用二:
+    EiString * string = (EiString *)malloc(sizeof(struct EiString));
+    char tmpString[20] = "\0";
+
+    EiStringInit(string);
+    
+    printf("plase input something:");
+    gets(tmpString);
+    EiStringAddString(string, tmpString);
     printf("content:%s length:%d cacheLength:%d\n", string->data, string->length, string->cacheLength);
 
-    // 文本释放
     EiStringRelease(string);
+  
     free(string);
     string = NULL;
  */
@@ -52,9 +63,9 @@ int EiStringInit (EiString * string);
 int EiStringInitWithCacheLength (EiString * string, int cacheLength);
 
 /*!
- @brief 追加内容 string:字符串变量 ch:数据
+ @brief 追加内容 string:字符串变量 appendString:文本数据
  */
-int EiStringAddCharWithChar (EiString * string, char ch);
+int EiStringAddString (EiString * string, char * appendString);
 
 /*!
  @brief 释放字符串变量 string:字符串变量

@@ -24,9 +24,7 @@ int EiStringInitWithCacheLength (EiString * string, int cacheLength) {
         string->length = 0;
         string->cacheLength = cacheLength;
         result = 1;
-        for (int i = string->length; i < cacheLength; i++) {
-                string->data[i] = '\0';
-        }
+        memset(string->data, 0, cacheLength);
     } else {
         printf("\nFunc:EiStringInitWithCacheLength, Eistring init failed, string is Null!\n");
     }
@@ -50,9 +48,6 @@ int EiStringRealloc (EiString * string, int newSize) {
         data = (char *)realloc(string->data, cacheLength);
 
         if (data) {
-            for (int i = string->length; i < cacheLength; i++) {
-                string->data[i] = '\0';
-            }
             string->cacheLength = cacheLength;
             string->data = data;
             result = 1;
@@ -72,15 +67,22 @@ int EiStringAddString (EiString * string, char * appendString) {
     int result = 0, count = 0;
 
     if (string != NULL) {
-        count = string->length + 1;
+        int stringSize = strlen(appendString);
+        count = string->length + stringSize;
         if (count > string->cacheLength) {
             EiStringRealloc (string, count);
         }
-        string->data [count - 1] = ch;
+        for (int i = string->length, j = 0; i < string->cacheLength; i++, j++) {
+            if (i < count) {
+                string->data [i] = appendString [j];
+            } else {
+                string->data [i] = '\0';
+            }
+        }
         string->length = count;
         result = 1;
     } else {
-        printf("\nFunc:EiStringAddCharWithChar, EiStringAddCharWithChar progress failed, string is Null!\n");
+        printf("\nFunc:EiStringAddString, EiStringAddString progress failed, string is Null!\n");
     }
 
     return result;

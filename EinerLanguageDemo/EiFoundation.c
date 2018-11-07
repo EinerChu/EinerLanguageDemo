@@ -34,7 +34,7 @@ void pauseProgress (void) {
         getchar();
     } else {
         // Win 环境
-        printf("\n_Win_\n");
-        system ("pause");
+        printf("\n_Win_\nPress any key to continue...\n\n");
+        getchar();
     }
 }
