@@ -11,7 +11,7 @@
 // 初始化字符串
 int EiStringInit (EiString * string) {
 
-    return EiStringInitWithCacheLength(string, 2);
+    return EiStringInitWithCacheLength(string, EISTRING_INIT_SIZE);
 }
 
 // 初始化指定长度的字符串
@@ -24,6 +24,9 @@ int EiStringInitWithCacheLength (EiString * string, int cacheLength) {
         string->length = 0;
         string->cacheLength = cacheLength;
         result = 1;
+        for (int i = string->length; i < cacheLength; i++) {
+                string->data[i] = '\0';
+        }
     } else {
         printf("\nFunc:EiStringInitWithCacheLength, Eistring init failed, string is Null!\n");
     }
@@ -44,9 +47,12 @@ int EiStringRealloc (EiString * string, int newSize) {
             cacheLength = cacheLength * 2;
         }
 
-        data = realloc (string->data, cacheLength);
+        data = (char *)realloc(string->data, cacheLength);
 
         if (data) {
+            for (int i = string->length; i < cacheLength; i++) {
+                string->data[i] = '\0';
+            }
             string->cacheLength = cacheLength;
             string->data = data;
             result = 1;
@@ -61,13 +67,12 @@ int EiStringRealloc (EiString * string, int newSize) {
 }
 
 // 追加字符串
-int EiStringAddCharWithChar (EiString * string, char ch) {
+int EiStringAddString (EiString * string, char * appendString) {
 
     int result = 0, count = 0;
 
     if (string != NULL) {
         count = string->length + 1;
-
         if (count > string->cacheLength) {
             EiStringRealloc (string, count);
         }

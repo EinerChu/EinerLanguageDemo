@@ -22,12 +22,19 @@ int getHashAddress (char * hashKey) {
         }
     }
 
-    return h % HASHMAXKEYLENGTH;
+    return h % HASH_MAX_KEY_LENGTH;
 }
 
 // 暂停程序
 void pauseProgress (void) {
 
-    printf("\n\nPress any key to continue...\n\n");
-    getchar();
+    if (SYSTEM_TYPE) {
+        // Mac 环境
+        printf("\n_Mac_\nPress any key to continue...\n\n");
+        getchar();
+    } else {
+        // Win 环境
+        printf("\n_Win_\n");
+        system ("pause");
+    }
 }

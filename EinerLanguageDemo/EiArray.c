@@ -20,7 +20,7 @@ int EiArrayInitWithCacheLength (EiArray * array, int cacheLength) {
     int result = 0;
 
     if (array != NULL) {
-        array->data = malloc (cacheLength * sizeof(void *));
+        array->data =  (void **)malloc(cacheLength * sizeof(void *));
         array->count = 0;
         array->cacheLength = cacheLength;
         result = 1;
@@ -48,7 +48,7 @@ int EiArrayRealloc (EiArray * array, int newSize) {
 
         if (data) {
             array->cacheLength = cacheLength;
-            array->data = data;
+            array->data[0] = data;
             result = 1;
         } else {
             printf("\nFunc:EiArrayRealloc, EiArrayRealloc progress failed, realloc memory error!\n");

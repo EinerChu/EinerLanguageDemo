@@ -7,11 +7,25 @@
 //
 
 #include "EiFoundation.h"
+#include <string.h>
 
 int main (int argc, const char * argv[]) {
+    
+    EiString string;
+    char tmpString[20] = "\0";
 
-    //int address = getHashAddress("b");
-    printf("Address:%lu", sizeof(int));
+    EiStringInit(&string);
+    
+    // 文本输入
+    printf("plase input something:");
+    gets(tmpString);
+
+    printf("length:%d\n", strlen(tmpString));
+    printf("length:%d\n", sizeof(tmpString));
+
+    // 文本使用
+    printf("content:%s-%s length:%d cacheLength:%d\n", tmpString, string.data, string.length, string.cacheLength);
+
     pauseProgress();
     
     return 0;

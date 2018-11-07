@@ -10,11 +10,13 @@
 #define EiFoundation_h
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "EiString.h"
-#include "EiArray.h"
-#include "EiError.h"
+//#include "EiArray.h"
+//#include "EiError.h"
 
-#define HASHMAXKEYLENGTH 1024                   // 哈希表容量
+#define SYSTEM_TYPE 0                               /* 系统类型 windows:0 mac:1 */
+#define HASH_MAX_KEY_LENGTH 1024                    // 哈希表容量
 
 /*!
  @brief 计算hash地址 hashKey:哈希关键字

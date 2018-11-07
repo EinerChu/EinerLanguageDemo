@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceRoot}",
+                "C:\\MinGW\\include",
+                "C:\\MinGW\\include\\ddk",
+                "C:\\MinGW\\include\\gdiplus",
+                "C:\\MinGW\\include\\GL",
+                "C:\\MinGW\\include\\parts",
+                "C:\\MinGW\\include\\sys"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
