@@ -26,7 +26,7 @@ int getHashAddress (char * hashKey) {
 }
 
 // 暂停程序
-void pauseProgress (void) {
+void pauseProgress () {
 
     if (SYSTEM_TYPE) {
         // Mac 环境

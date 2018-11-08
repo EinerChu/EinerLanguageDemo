@@ -18,6 +18,8 @@ typedef struct EiArray {
     void ** data;               // data
 } EiArray;
 
+#define EIARRAY_INIT_SIZE 12   // Eistring 默认的初始化大小
+
 /*!
  @brief 初始化数组变量 array 数组变量
  */

@@ -11,7 +11,7 @@
 // 初始化数组
 int EiArrayInit (EiArray * array) {
 
-    return EiArrayInitWithCacheLength(array, 2);
+    return EiArrayInitWithCacheLength(array, EIARRAY_INIT_SIZE);
 }
 
 // 初始化字符串变量 array:数组变量 cacheLength:数据缓存长度
@@ -20,9 +20,9 @@ int EiArrayInitWithCacheLength (EiArray * array, int cacheLength) {
     int result = 0;
 
     if (array != NULL) {
-        array->data =  (void **)malloc(cacheLength * sizeof(void *));
-        array->count = 0;
+        array->data = (void **)malloc(cacheLength * sizeof(void *));
         array->cacheLength = cacheLength;
+        array->count = 0;
         result = 1;
     } else {
         printf("\nFunc:EiArrayInitWithCacheLength, EiArray init failed, array is Null!\n");
@@ -44,7 +44,7 @@ int EiArrayRealloc (EiArray * array, int newSize) {
             cacheLength = cacheLength * 2;
         }
 
-        data = realloc (array->data, cacheLength);
+        data = (void *)realloc(array->data, cacheLength * sizeof(void *));
 
         if (data) {
             array->cacheLength = cacheLength;

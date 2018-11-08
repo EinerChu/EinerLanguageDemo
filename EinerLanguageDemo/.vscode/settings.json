@@ -1,4 +1,9 @@
 {
     "editor.fontSize": 16,
-    "editor.fontWeight": "500"
+    "editor.fontWeight": "500",
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "eifoundation.h": "c",
+        "eistring.h": "c"
+    }
 }
